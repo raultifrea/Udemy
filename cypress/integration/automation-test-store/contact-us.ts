@@ -4,9 +4,9 @@ describe("Test contact us from via WebdriverUni", () => {
     })
     it("Should be able to submit form", () => {
         cy.visit("https://automationteststore.com/");
-        cy.get("a[href$='contact']").click().then(element =>{
+        cy.get("a[href$='contact']").click().then(element =>{ //starts with 'contact'
             cy.log("The full name is " + element.text());
-        })                                               //starts with 'contact'
+        })                                               
         cy.get('@user').then((user: any)=>{
             cy.get('[id="ContactUsFrm_first_name"]').type(user.first_name);
             cy.get('[id="ContactUsFrm_email"]').type(user.email);
