@@ -11,6 +11,7 @@
     "triggerAllTests-webdriveruni": "npx cypress run --spec cypress/integration/webdriver-uni/*",
     "triggerAllTests-autoTestStore": "npx cypress run --spec cypress/integration/automation-test-store/*",
     "triggerAllTests-autoTestStore-dashboard": "npx cypress run --spec cypress/integration/automation-test-store/* --record --key 744dd747-8f44-4666-841d-e88135cb465e",
+    "triggerAllTests-cucumberTests": "npx cypress run --spec cypress/integration/webdriver-uni/features/*.feature --browser chrome --headed",
     "junit-merge": "npx junit-merge -d cypress/results/junit -o cypress/results/junit/results.xml",
     "delete-junit-report": "rm -rf cypress/results/junit/results.xml",
     "delete-results": "rm -rf cypress/results/* || true",
@@ -24,11 +25,13 @@
   "author": "Raul Tifrea",
   "license": "ISC",
   "dependencies": {
+    "@cypress/browserify-preprocessor": "^3.0.2",
     "cypress": "^9.5.2",
     "typescript": "^4.6.3"
   },
   "devDependencies": {
     "@types/mocha": "^9.1.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-file-upload": "^5.0.8",
     "cypress-multi-reporters": "^1.6.0",
     "mocha": "^9.2.2",
@@ -36,5 +39,9 @@
     "mochawesome": "^7.1.3",
     "mochawesome-merge": "^4.2.1",
     "mochawesome-report-generator": "^6.2.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "stepDefinitions": "cypress/support/step_definitions"
   }
 }

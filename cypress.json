@@ -20,5 +20,6 @@
   "reporter": "cypress-multi-reporters",
   "reporterOptions": {
     "configFile": "reporter-config.json"
-  }
+  },
+  "experimentalStudio": true
 }

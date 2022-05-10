@@ -2,6 +2,18 @@ describe("JSON Object", () => {
     it("JSON Object examples", () => {
         const exampleObject = {"key":"Tim", "key2": "Jones"}
         const exampleArrayOfValues = ["Sophie", "Rose", "Howard"]
+        const exampleArrayOfObjects = [
+            {
+                "key": "value"
+            },
+            {
+                "cheie": "valoare"
+            },
+            {
+                "another_key": "another_value"
+            }
+        ]
+
         const users = {
             "firstName": "Joe",
             "lastName": "Blogs",
@@ -26,6 +38,10 @@ describe("JSON Object", () => {
         cy.log(exampleArrayOfValues[2]); //Howard
 
         cy.log(users.Students[0].lastName); //Blogs2
+
+        cy.log(`${exampleArrayOfObjects[0].key}`)
+        cy.log(`${exampleArrayOfObjects[1].cheie}`)
+        cy.log(`${exampleArrayOfObjects[2].another_key}`)
 
     });
 })

@@ -14,6 +14,9 @@
 
 const fs = require('fs-extra')
 const path = require('path')
+const cucumber = require('cypress-cucumber-preprocessor').default;
+const browserify = require('@cypress/browserify-preprocessor')
+const resolve = require('resolve');
 
 function getConfigurationByFile(file) {
     const pathToConfigFile = path.resolve('cypress', 'config', `${file}.json`)
@@ -29,6 +32,13 @@ function getConfigurationByFile(file) {
 module.exports = (on, config) => {
     // accept a configFile value or use development by default
     const file = config.env.configFile
-
     return getConfigurationByFile(file)
+}
+
+module.exports = (on, config) => {
+    const options = {
+        ...browserify.defaultOptions,
+        typescript: resolve.sync('typescript', { baseDir: config.projectRoot })
+        };
+    on('file:preprocessor', cucumber(options));
 }
