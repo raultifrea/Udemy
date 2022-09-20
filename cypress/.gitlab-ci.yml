@@ -1,0 +1,31 @@
+image: node:latest
+stages: 
+  - build         # List of stages for jobs, and their order of execution
+  - test
+  - report
+
+# before_script:
+#   - npm install
+# cache:
+#   paths:
+#     - .npm
+#     - node_modules
+
+clear-report:
+  stage: build
+  script:
+    - echo "Clear the report"
+    - npm run delete-mochawesome-report
+
+run-tests:  
+  stage: test  
+  image: cypress/browsers:node16.5.0-chrome97-ff96
+  script:
+    - echo "Starting all tests headless"
+    - npm run triggerAllTests-headless
+
+create-report:
+  stage: report
+  image: cypress/browsers:node16.5.0-chrome97-ff96
+  script:
+    - echo "Creating mochawesome 
