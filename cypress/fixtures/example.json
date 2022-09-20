@@ -3,5 +3,8 @@
   "email": "jobiden@gmail.com",
   "body": "Fixtures are a great way to mock data for responses to routes",
   "first_name": "Joe",
-  "last_name": "Biden"
+  "last_name": "Biden",
+  "test" {
+    "value": "test"
+  }
 }
