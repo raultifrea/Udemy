@@ -16,6 +16,7 @@ declare global {
         addProductToBasket: typeof addProductToBasket;
         navigateTo_WebdriverUni_Homepage: typeof navigateTo_WebdriverUni_Homepage;
         navigateTo_WebdriverUni_Checkbox_Page: typeof navigateTo_WebdriverUni_Checkbox_Page;
+        navigateTo_WebdriverUni_Button_Clicks: typeof navigateTo_WebdriverUni_Button_Clicks;
         }
     }
 }
@@ -57,9 +58,14 @@ export const navigateTo_WebdriverUni_Checkbox_Page = () =>{
     cy.visit('/' + 'Dropdown-Checkboxes-RadioButtons/index.html');
 }
 
+export const navigateTo_WebdriverUni_Button_Clicks = () =>{
+    cy.visit('/' + 'Click-Buttons/index.html');
+}
+
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 Cypress.Commands.add('selectProduct', selectProduct);
 Cypress.Commands.add('addProductToBasket', addProductToBasket);
 Cypress.Commands.add('navigateTo_WebdriverUni_Homepage', navigateTo_WebdriverUni_Homepage);
 Cypress.Commands.add('navigateTo_WebdriverUni_Checkbox_Page', navigateTo_WebdriverUni_Checkbox_Page);
+Cypress.Commands.add('navigateTo_WebdriverUni_Button_Clicks', navigateTo_WebdriverUni_Button_Clicks);

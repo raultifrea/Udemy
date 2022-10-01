@@ -17,19 +17,28 @@ export default defineConfig({
     first_name: 'raul',
   },
   projectId: '7yjoqm',
-  reporter: 'cypress-multi-reporters',
-  reporterOptions: {
-    configFile: 'reporter-config.json',
-  },
   experimentalStudio: true,
+  reporter: "cypress-multi-reporters",
+  reporterOptions: {
+    reporterEnabled: "mochawesome",
+    mochawesomeReporterOptions: {
+        reportDir: "cypress/results/mocha",
+        screenshotOnRunFailure: true,
+        quite: true,
+        overwrite: false,
+        html: false,
+        json: true
+    } 
+  },
+  screenshotsFolder: "cypress/results/mochareports/screenshots",
   e2e: {
     // We've imported your old cypress plugins here.
     // You may want to clean this up later by importing these.
     setupNodeEvents(on, config) {
-      return require('./cypress/plugins/index.js')(on, config)
+      return require("./cypress/plugins/index.js")(on, config)
     },
-    baseUrl: 'https://webdriveruniversity.com',
-    excludeSpecPattern: ['*.js'],
-    specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx}',
+    baseUrl: "https://webdriveruniversity.com",
+    excludeSpecPattern: ["*.js"],
+    specPattern: "cypress/e2e/**/*.{js,jsx,ts,tsx}",
   },
 })
