@@ -19,7 +19,7 @@ describe("Test File Upload via webdriveruni", () => {
         cy.get('#submit-button').click();
       });
 
-      it.only("Upload no file....", () => {
+      it("Upload no file....", () => {
         cy.get('#submit-button').click();
       });
 

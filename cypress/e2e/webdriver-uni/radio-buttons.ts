@@ -9,7 +9,7 @@ describe("Verify radio buttons via webdriveruni", () => {
         cy.get('#radio-buttons').find('[type="radio"]').eq(1).check();      //the second result
     });
 
-    it.only("Validate the states of specific radio buttons", () => {
+    it("Validate the states of specific radio buttons", () => {
         cy.get('[value="lettuce"]').should('not.be.checked');
         cy.get('[value="pumpkin"]').should('be.checked')
 

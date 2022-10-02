@@ -14,7 +14,7 @@ describe("Handle JS alerts", () => {
         cy.get("#popup-alerts").invoke('removeAttr', 'target').click({force:true});
         cy.get('#button4').click();
         cy.on('window:confirm', () =>{
-            return true                                                                 //clicks OK
+            return true                                                       //clicks OK
         });
         cy.get('#confirm-alert-text').contains('You pressed OK!');
     });
@@ -24,7 +24,7 @@ describe("Handle JS alerts", () => {
         cy.get("#popup-alerts").invoke('removeAttr', 'target').click({force:true});
         cy.get('#button4').click();
         cy.on('window:confirm', () =>{
-            return false;                                                               //clicks Cancel
+            return false;                                                 //clicks Cancel
         });
         cy.get('#confirm-alert-text').contains('You pressed Cancel!');
     });
@@ -38,7 +38,7 @@ describe("Handle JS alerts", () => {
         cy.get('#button4').click().then(() =>{
             expect(stub.getCall(0)).to.be.calledWith('Press a button!');
         }).then(() => {
-            return true;                                                               // clicks OK in the confirm prompt
+            return true;                                                // clicks OK in the confirm prompt
         }).then(() => {
             cy.get('#confirm-alert-text').contains('You pressed OK!');
         })

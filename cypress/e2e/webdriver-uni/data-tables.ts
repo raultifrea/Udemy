@@ -20,7 +20,7 @@ describe("Handling data over webdriver uni", () => {
         })
       });
 
-      it.only("Calculate and assert the age of a given user baased on last name", () => {
+      it("Calculate and assert the age of a given user based on last name", () => {
         cy.get('#thumbnail-1 tr td:nth-child(2)').as('column');
         cy.get('@column').each(($el, index, $list) => {
             const text = $el.text();

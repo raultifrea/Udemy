@@ -20,7 +20,7 @@ describe("Alias and Invoke", () => {
         cy.get('@productsNumber').find('.productcart').invoke('attr', 'title').should('eq', 'Add to Cart');
     });
 
-    it.only("Calculate total of normal and sale products", () => {
+    it("Calculate total of normal and sale products", () => {
       cy.get(".thumbnail").as('productsThumbnail');
       cy.get('@productsThumbnail').find('.oneprice').invoke('text').as('itemPrice');
       cy.get('@productsThumbnail').find('.pricenew').invoke('text').as('saleItemPrice');
