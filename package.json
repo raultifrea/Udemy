@@ -14,7 +14,7 @@
     "triggerAllTests-cucumberTests": "npx cypress run --spec cypress/e2e/webdriver-uni/features/*.feature --browser chrome --headed",
     "junit-merge": "npx junit-merge -d cypress/results/junit -o cypress/results/junit/results.xml",
     "delete-junit-report": "rm -rf cypress/results/junit/results.xml",
-    "delete-results": "rm -rf cypress/results/* && rm -rf cypress/screenshots/* || true",
+    "delete-results": "rm -rf cypress/results/* && rm -rf cypress/screenshots/* && rm -rf cypress/reports/* || true",
     "mochawesome-merge": "npx mochawesome-merge cypress/results/mocha/*.json > mochawesome.json && npx marge mochawesome.json",
     "mochawesome-merge2": "npx mochawesome-merge cypress/results/mocha/*.json > cypress/results/mochareports/report.json",
     "mochawesome-merge3": "npx marge cypress/results/mochareports/report.json -f report -o cypress/results/mochareports --inline",
@@ -28,6 +28,7 @@
   "license": "ISC",
   "dependencies": {
     "@cypress/browserify-preprocessor": "^3.0.2",
+    "cypress-mochawesome-reporter": "^3.2.2",
     "typescript": "^4.6.3"
   },
   "devDependencies": {
