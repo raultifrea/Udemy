@@ -2,14 +2,6 @@ image: node:latest
 stages: 
   - build         # List of stages for jobs, and their order of execution
   - test
-  - report
-
-# before_script:
-#   - npm install
-# cache:
-#   paths:
-#     - .npm
-#     - node_modules
 
 clear-report:
   stage: build
@@ -25,12 +17,11 @@ run-tests:
     - echo "Installing TypeScript"
     - npm install typescript
   script:
-    - echo "Starting all tests headless"
+    - echo "Starting all tests headless and creating report with screenshots"
     - npm run triggerAllTests-headless
-
-# create-report:
-#   stage: report
-#   image: cypress/browsers:node16.5.0-chrome97-ff96
-#   script:
-#     - echo "Creating mochawesome report"
+  artifacts:
+    when: always
+    expire_in: 30 days
+    paths:
+      - cypress/reports/*
     
