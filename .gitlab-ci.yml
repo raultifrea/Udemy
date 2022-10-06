@@ -16,16 +16,21 @@ clear-report:
   script:
     - echo "Clear the report"
     - npm run delete-mochawesome-report
+    - npm run delete-results
 
 run-tests:  
   stage: test  
   image: cypress/browsers:node16.5.0-chrome97-ff96
+  before_script: 
+    - echo "Installing TypeScript"
+    - npm install typescript
   script:
     - echo "Starting all tests headless"
     - npm run triggerAllTests-headless
 
-create-report:
-  stage: report
-  image: cypress/browsers:node16.5.0-chrome97-ff96
-  script:
-    - echo "Creating mochawesome 
+# create-report:
+#   stage: report
+#   image: cypress/browsers:node16.5.0-chrome97-ff96
+#   script:
+#     - echo "Creating mochawesome report"
+    
