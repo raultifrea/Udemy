@@ -7,7 +7,7 @@ describe("Handling data over webdriver uni", () => {
         let userDetails: string[] = [];
         let numb = 0;
         let ageTotal = 322;
-        cy.get('#thumbnail-1 td').each(($el, index, $list) => {
+        cy.get('#thumbnail-1 td').each(($el, index) => {
             userDetails[index] = $el.text();
         }).then(() =>{
             for(let i = 0; i < userDetails.length; i++){
@@ -22,7 +22,7 @@ describe("Handling data over webdriver uni", () => {
 
       it("Calculate and assert the age of a given user based on last name", () => {
         cy.get('#thumbnail-1 tr td:nth-child(2)').as('column');
-        cy.get('@column').each(($el, index, $list) => {
+        cy.get('@column').each(($el, index) => {
             const text = $el.text();
             if(text.includes("Woods")){
                 cy.log(`Index is: ${index}`)

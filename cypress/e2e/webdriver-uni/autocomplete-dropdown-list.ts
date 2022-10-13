@@ -6,7 +6,7 @@ describe("Verify autocomplete dropdown lists via webdriver uni", () => {
 
     it("Select specific product via autocomplete list", () => {
         cy.get('#myInput').type('A');
-        cy.get('#myInputautocomplete-list > *').each(($el, index, $list) => {
+        cy.get('#myInputautocomplete-list > *').each(($el) => {
             const prod = $el.text();
             const productToSelect = 'Avacado';
             if(prod === productToSelect){
@@ -16,7 +16,7 @@ describe("Verify autocomplete dropdown lists via webdriver uni", () => {
             }
         }).then(() => {
             cy.get('#myInput').type('G');
-            cy.get('#myInputautocomplete-list > *').each(($el, index, $list) => {
+            cy.get('#myInputautocomplete-list > *').each(($el) => {
                 const prod = $el.text();
                 const productToSelect = 'Grapes';
                 if(prod === productToSelect){
@@ -24,7 +24,7 @@ describe("Verify autocomplete dropdown lists via webdriver uni", () => {
                    cy.get('#submit-button').click();
                    cy.url().should('include', productToSelect);
                 }
-        })
-    })
-})
-})
+        });
+    });
+});
+});

@@ -1,4 +1,4 @@
-describe.skip("https://docs.cypress.io/guides/references/assertions#BDD-Assertions", ()=>{
+describe("https://docs.cypress.io/guides/references/assertions#BDD-Assertions", ()=>{
     const name = "Raul"
     const obj = {name: "Raul"}
     const otherObj = {a: {b: ['x', 'y']}}

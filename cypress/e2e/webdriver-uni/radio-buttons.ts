@@ -2,7 +2,7 @@ describe("Verify radio buttons via webdriveruni", () => {
     before( () => {
         cy.visit("/");
         cy.get("#dropdown-checkboxes-radiobuttons").invoke('removeAttr', 'target').click({force:true});
-    })
+    });
 
     it("Check specific radio buttons", () => {
         cy.get('#radio-buttons').find('[type="radio"]').first().check();

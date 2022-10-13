@@ -34,7 +34,7 @@ declare global {
 // Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
 
 export const selectProduct = (productName: string) =>{
-    cy.get(".fixed_wrapper .prdocutname").each(($el, index, $list) => {
+    cy.get(".fixed_wrapper .prdocutname").each(($el) => {
         if($el.text().includes(productName)){
             cy.wrap($el).click();
         }
