@@ -4,7 +4,7 @@
   "description": "Udemy project",
   "main": "index.js",
   "scripts": {
-    "triggerAllTests-headless": "npx cypress run --record --parallel",
+    "triggerAllTests-headless": "npx cypress run",
     "triggerAllTests-headed": "npx cypress run --headed",
     "triggerAllTests-chrome": "npx cypress run --browser chrome --headed",
     "triggerAllTests-dashboard": "npx cypress run --record --key 744dd747-8f44-4666-841d-e88135cb465e",
