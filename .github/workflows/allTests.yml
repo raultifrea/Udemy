@@ -46,5 +46,5 @@ jobs:
                 spec: '${{ env.CYPRESS_SPEC }}'
               env:
                 CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-                CYPRESS_SPEC: 'triggerAllTests-cucumberTests'
+                CYPRESS_SPEC: 'triggerAllTests-autoTestStore'
 
