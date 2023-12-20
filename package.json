@@ -4,7 +4,7 @@
   "description": "Udemy project",
   "main": "index.js",
   "scripts": {
-    "triggerAllTests-headless": "npx cypress run",
+    "triggerAllTests-headless": "npx cypress run --record --parallel",
     "triggerAllTests-headed": "npx cypress run --headed",
     "triggerAllTests-chrome": "npx cypress run --browser chrome --headed",
     "triggerAllTests-dashboard": "npx cypress run --record --key 744dd747-8f44-4666-841d-e88135cb465e",
@@ -34,7 +34,7 @@
   "devDependencies": {
     "@types/mocha": "^9.1.0",
     "@types/node": "^18.7.18",
-    "cypress": "^12.3.0",
+    "cypress": "^13.6.1",
     "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-file-upload": "^5.0.8",
     "cypress-multi-reporters": "^1.6.0",

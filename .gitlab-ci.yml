@@ -2,6 +2,8 @@ image: node:latest
 stages: 
   - build         # List of stages for jobs, and their order of execution
   - test
+variables:
+  CYPRESS_RECORD_KEY: $CYPRESS_RECORD_KEY
 
 clear-report:
   stage: build
@@ -12,7 +14,8 @@ clear-report:
 
 run-tests:  
   stage: test  
-  image: cypress/browsers:node16.5.0-chrome97-ff96
+  image: cypress/browsers:node16.16.0-chrome107-ff107
+  parallel: 2 #Uses two parallel instances
   before_script: 
     - echo "Installing TypeScript"
     - npm install typescript
