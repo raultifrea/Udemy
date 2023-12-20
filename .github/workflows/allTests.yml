@@ -11,7 +11,7 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                containers: [1, 2, 3] # Uses 2 parallel instances
+                containers: [1, 2] # Uses 2 parallel instances
         steps:
             - name: Checkout Repository
               uses: actions/checkout@v3
@@ -49,5 +49,5 @@ jobs:
                 CYPRESS_SPEC: ''
 
             - name: Trigger all tests
-              run: npm run triggerAllTests-dashboard
+              run: npm run triggerAllTests-cucumberTests
 
