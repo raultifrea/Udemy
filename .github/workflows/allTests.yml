@@ -37,19 +37,13 @@ jobs:
                 npm run delete-mochawesome-report
                 npm run delete-results
 
-            - name: List automation-test-store scripts
-              run: |
-                SPEC_PATH=$(npm run triggerAllTests-autoTestStore2 --silent)
-                SPEC_PATH=$(echo $SPEC_PATH | tr '\n' ',')
-                echo "::set-env name=SPEC_PATH::$SPEC_PATH"
-
             - name: Run Tests
               uses: cypress-io/github-action@v6
               with:
                 record: true
                 parallel: true
                 group: 'e2e-tests'
-                spec: '${{ env.SPEC_PATH }}'
+                spec: 'npx cypress run --spec cypress/e2e/automation-test-store/*'
               env:
                 CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 

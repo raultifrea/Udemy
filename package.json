@@ -10,7 +10,6 @@
     "triggerAllTests-dashboard": "npx cypress run --record --key 744dd747-8f44-4666-841d-e88135cb465e",
     "triggerAllTests-webdriveruni": "npx cypress run --spec cypress/integration/webdriver-uni/*",
     "triggerAllTests-autoTestStore": "npx cypress run --spec cypress/e2e/automation-test-store/*",
-    "triggerAllTests-autoTestStore2": "npx cypress run --spec-files '**/*.spec.js' --list-tests",
     "triggerAllTests-autoTestStore-dashboard": "npx cypress run --spec cypress/e2e/automation-test-store/* --record --key 744dd747-8f44-4666-841d-e88135cb465e",
     "triggerAllTests-cucumberTests": "npx cypress run --spec cypress/e2e/webdriver-uni/features/*.feature --browser chrome --headed",
     "junit-merge": "npx junit-merge -d cypress/results/junit -o cypress/results/junit/results.xml",
