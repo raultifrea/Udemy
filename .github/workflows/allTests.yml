@@ -46,4 +46,18 @@ jobs:
                 spec: ''
               env:
                 CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+  
+            - name: Prepare report
+              if: success() || failure()
+              run: |
+                mkdir -p cypress/results/html-0
+                cp -r cypress/reports/html/* cypress/results/html-0
+
+            - name: Archive results
+              if: success() || failure()
+              uses: actions/upload-artifact@v3
+              with:
+                name: artifacts
+                path: |
+                  cypress/results/**
 
