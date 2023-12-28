@@ -7,7 +7,7 @@ describe("Test contact us from via WebdriverUni", () => {
         cy.visit("https://automationteststore.com/");
         cy.get("a[href$='contact']").click().then(element =>{ //starts with 'contact'
             cy.log("The full name is " + element.text());
-            console.log("The value of RU is " + RU);
+            cy.log("The value of RU is " + RU);
         })                                               
         cy.get('@user').then((user: any)=>{
             cy.get('[id="ContactUsFrm_first_name"]').type(user.first_name);
