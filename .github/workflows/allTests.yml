@@ -50,8 +50,8 @@ jobs:
             - name: Prepare report
               if: success() || failure()
               run: |
-                mkdir -p cypress/results/html-0
-                cp -r cypress/reports/html/* cypress/results/html-0
+                mkdir -p cypress/results/
+                cp -r cypress/reports/html/* cypress/results/
 
             - name: Archive results
               if: success() || failure()
