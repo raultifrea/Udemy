@@ -24,7 +24,14 @@ export default defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on)
+      on('task', {
+        log(args) {
+          console.log(...args);
+          return null;
+        },
+      });
       return require("./cypress/plugins/index.js")(on, config)
+      
     },
     baseUrl: "https://webdriveruniversity.com",
     excludeSpecPattern: ["*.js"],
