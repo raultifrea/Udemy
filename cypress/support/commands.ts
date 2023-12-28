@@ -62,6 +62,17 @@ export const navigateTo_WebdriverUni_Button_Clicks = () =>{
     cy.visit('/' + 'Click-Buttons/index.html');
 }
 
+Cypress.Commands.overwrite('log', function (log, ...args) {
+    if (Cypress.browser.isHeadless) {
+      return cy.task('log', args, { log: false }).then(() => {
+        return log(...args);
+      });
+    } else {
+      console.log(...args);
+      return log(...args);
+    }
+  });
+
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 Cypress.Commands.add('selectProduct', selectProduct);
