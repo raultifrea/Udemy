@@ -2,6 +2,11 @@ name: Run All Tests Headless
 
 on:
     workflow_dispatch:
+      inputs:
+        ru:
+          description: The variable to be passed
+          required: false
+          default: TEST
     schedule:
         - cron: 0 7 * * 1
 
@@ -47,7 +52,7 @@ jobs:
               env:
                 CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
                 # CYPRESS_BASE_URL: ''
-                RU: 'ROMANIA'
+                RU: ${{ github.event.inputs.ru || 'ROMANIA' }}
   
             - name: Prepare report
               if: success() || failure()
