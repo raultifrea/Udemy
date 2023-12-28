@@ -46,7 +46,8 @@ jobs:
                 spec: ''
               env:
                 CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-                CYPRESS_BASE_URL: 'https://www.google.com/'
+                # CYPRESS_BASE_URL: ''
+                RU: 'ROMANIA'
   
             - name: Prepare report
               if: success() || failure()
