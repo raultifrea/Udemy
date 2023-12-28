@@ -46,6 +46,7 @@ jobs:
                 spec: ''
               env:
                 CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+                CYPRESS_BASE_URL: 'www.google.com'
   
             - name: Prepare report
               if: success() || failure()

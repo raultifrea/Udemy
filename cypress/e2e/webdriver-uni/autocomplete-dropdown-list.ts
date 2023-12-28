@@ -10,7 +10,7 @@ describe("Verify autocomplete dropdown lists via webdriver uni", () => {
             const prod = $el.text();
             const productToSelect = 'Avacado';
             if(prod === productToSelect){
-               cy.wrap($el).click();                                                //    $el.trigger('click');  Same outcome
+               cy.wrap($el).click();                    // $el.trigger('click');  Same outcome
                cy.get('#submit-button').click();
                cy.url().should('include', productToSelect);
             }
@@ -20,7 +20,7 @@ describe("Verify autocomplete dropdown lists via webdriver uni", () => {
                 const prod = $el.text();
                 const productToSelect = 'Grapes';
                 if(prod === productToSelect){
-                   cy.wrap($el).click();                                                //    $el.trigger('click');  Same outcome
+                   cy.wrap($el).click();                // $el.trigger('click');  Same outcome
                    cy.get('#submit-button').click();
                    cy.url().should('include', productToSelect);
                 }
