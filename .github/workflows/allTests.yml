@@ -51,8 +51,8 @@ jobs:
                 spec: ''
               env:
                 CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+                RU: ${{ github.event.inputs.ru || 'TEST' }}
                 # CYPRESS_BASE_URL: ''
-                RU: ${{ github.event.inputs.ru }}
   
             - name: Prepare report
               if: success() || failure()
