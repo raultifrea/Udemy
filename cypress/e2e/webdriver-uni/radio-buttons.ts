@@ -1,5 +1,5 @@
 describe("Verify radio buttons via webdriveruni", () => {
-    before( () => {
+    beforeEach( () => {
         cy.visit("/");
         cy.get("#dropdown-checkboxes-radiobuttons").invoke('removeAttr', 'target').click({force:true});
     });

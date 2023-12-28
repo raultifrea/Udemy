@@ -1,5 +1,5 @@
 describe("Test mouse actions", () => {
-    before( () => {
+    beforeEach( () => {
         cy.visit("/");
         cy.get('#actions').scrollIntoView().invoke('removeAttr', 'target').click({force:true});
     });

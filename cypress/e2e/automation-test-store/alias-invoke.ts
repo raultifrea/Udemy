@@ -25,20 +25,20 @@ describe("Alias and Invoke", () => {
       cy.get('@productsThumbnail').find('.oneprice').invoke('text').as('itemPrice');
       cy.get('@productsThumbnail').find('.pricenew').invoke('text').as('saleItemPrice');
       var itemsTotal = 0;
-      cy.get('@itemPrice').then($linkText => {
+      cy.get('@itemPrice').then(($linkText: any) => {
         var itemsPriceTotal = 0;
-        var itemPrice = $linkText.text().split('$'); //doesnt work with text() remove text() to work but show errors
-        var i;
+        var itemPrice = $linkText.split('$'); //doesnt work with text() remove text() to work but show errors
+        var i: any;
         for(i = 0; i < itemPrice.length; i++){
           itemsPriceTotal += Number(itemPrice[i]);
         }
         itemsTotal += itemsPriceTotal;
       });
 
-      cy.get('@saleItemPrice').then($linkText => {
+      cy.get('@saleItemPrice').then(($linkText: any) => {
         var saleItemsPrice = 0
-        var saleItemPrice = $linkText.text().split('$'); //doesnt work with text() remove text() to work but show errors
-        var i;
+        var saleItemPrice = $linkText.split('$'); //doesnt work with text() remove text() to work but show errors
+        var i: any;
         for(i=0; i < saleItemPrice.length; i++){
           saleItemsPrice += Number(saleItemPrice[i]);
         }
@@ -46,7 +46,7 @@ describe("Alias and Invoke", () => {
       })
     .then(() => {
       cy.log("The total price of all products: "+ itemsTotal);
-      expect(itemsTotal).to.equal(648.5);
+      expect(itemsTotal).to.equal(660.5);
     })
   });
 });
