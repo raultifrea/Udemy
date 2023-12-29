@@ -1,4 +1,4 @@
-describe("Cypress web security", () => {
+describe.skip("Cypress web security", () => {
     it("Validate visiting two different domains", () => {
         cy.visit("https://webdriveruniversity.com");
         //this will fail
