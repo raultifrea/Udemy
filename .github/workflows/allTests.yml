@@ -48,7 +48,7 @@ jobs:
                 record: true
                 parallel: true
                 group: 'e2e-tests'
-                spec: ''
+                spec: 'cypress/e2e/automation-test-store/*.cy.ts'
               env:
                 CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
                 RU: ${{ github.event.inputs.ru || 'TEST' }}
