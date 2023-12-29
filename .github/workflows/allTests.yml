@@ -49,7 +49,7 @@ jobs:
                 parallel: true
                 browser: chrome
                 group: 'e2e-tests'
-                spec: 'cypress/e2e/*'
+                spec: 'cypress/e2e/**/*' # Run all tests. Same as empty string ''
               env:
                 CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
                 CYPRESS_RU: ${{ github.event.inputs.ru || 'ROMANIA' }}
