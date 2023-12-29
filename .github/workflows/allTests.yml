@@ -1,3 +1,4 @@
+# https://github.com/marketplace/actions/cypress-io
 name: Run All Tests Headless
 
 on:
@@ -52,8 +53,8 @@ jobs:
                 spec: 'cypress/e2e/**/*' # Run all tests. Same as empty string ''
               env:
                 CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-                CYPRESS_RU: ${{ github.event.inputs.ru || 'ROMANIA' }}
-                # CYPRESS_BASE_URL: ''
+                CYPRESS_RU: ${{ github.event.inputs.ru }}
+                # CYPRESS_BASE_URL: '' # Fil in new baseUrl with https prefix
   
             - name: Prepare report
               if: success() || failure()
