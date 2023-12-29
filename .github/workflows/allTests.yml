@@ -5,7 +5,7 @@ on:
       inputs:
         ru:
           description: The variable to be passed
-          required: false
+          required: true
           default: TEST
     schedule:
         - cron: 0 7 * * 1
@@ -52,7 +52,7 @@ jobs:
                 spec: 'cypress/e2e/automation-test-store/*'
               env:
                 CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-                CYPRESS_RU: ${{ github.event.inputs.ru || 'TEST' }}
+                CYPRESS_RU: ${{ github.event.inputs.ru || 'ROMANIA' }}
                 # CYPRESS_BASE_URL: ''
   
             - name: Prepare report
