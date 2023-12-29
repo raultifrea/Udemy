@@ -48,7 +48,7 @@ jobs:
                 record: true
                 parallel: true
                 group: 'e2e-tests'
-                spec: 'cypress/e2e/automation-test-store/*'
+                spec: 'cypress/e2e/automation-test-store/* --browser chrome'
               env:
                 CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
                 RU: ${{ github.event.inputs.ru || 'TEST' }}
