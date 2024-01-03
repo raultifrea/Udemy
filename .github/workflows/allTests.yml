@@ -47,7 +47,7 @@ jobs:
               uses: cypress-io/github-action@v6
               with:
                 record: true
-                parallel: true
+                parallel: false
                 browser: chrome
                 group: 'e2e-tests'
                 spec: 'cypress/e2e/**/*' # Run all tests. Same as empty string ''
