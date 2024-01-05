@@ -17,7 +17,7 @@ export default defineConfig({
     webdriveruni_homepage: 'https://webdriveruniversity.com',
     first_name: 'raul',
   },
-  projectId: '7yjoqm',
+  // projectId: '7yjoqm',
   experimentalStudio: true,
   reporter: "cypress-mochawesome-reporter",
   reporterOptions: {

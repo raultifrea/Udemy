@@ -47,7 +47,6 @@ jobs:
               uses: cypress-io/github-action@v6
               with:
                 browser: chrome
-                group: 'e2e-tests'
                 spec: 'cypress/e2e/**/*' # Run all tests. Same as empty string ''
               env:
                 CYPRESS_RU: ${{ github.event.inputs.ru }}
