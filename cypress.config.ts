@@ -26,13 +26,14 @@ export default defineConfig({
     setupNodeEvents(on, config) {
       cypressSplit(on, config)
       require('cypress-mochawesome-reporter/plugin')(on)
+      require("./cypress/plugins/index.js")(on, config)
       on('task', {
         log(args) {
           console.log(...args);
           return null;
         },
       });
-      return require("./cypress/plugins/index.js")(on, config)
+      return config
       
     },
     baseUrl: "https://webdriveruniversity.com",
