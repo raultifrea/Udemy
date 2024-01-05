@@ -1,4 +1,5 @@
 import { defineConfig } from 'cypress'
+import cypressSplit from 'cypress-split'
 
 export default defineConfig({
   chromeWebSecurity: false,
@@ -23,6 +24,7 @@ export default defineConfig({
   },
   e2e: {
     setupNodeEvents(on, config) {
+      cypressSplit(on, config)
       require('cypress-mochawesome-reporter/plugin')(on)
       on('task', {
         log(args) {
