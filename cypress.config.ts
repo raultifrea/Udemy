@@ -1,4 +1,5 @@
 import { defineConfig } from 'cypress'
+import cypressSplit from 'cypress-split'
 
 export default defineConfig({
   chromeWebSecurity: false,
@@ -16,21 +17,23 @@ export default defineConfig({
     webdriveruni_homepage: 'https://webdriveruniversity.com',
     first_name: 'raul',
   },
-  projectId: '7yjoqm',
+  // projectId: '7yjoqm',
   experimentalStudio: true,
   reporter: "cypress-mochawesome-reporter",
   reporterOptions: {
   },
   e2e: {
     setupNodeEvents(on, config) {
+      cypressSplit(on, config)
       require('cypress-mochawesome-reporter/plugin')(on)
+      require("./cypress/plugins/index.js")(on, config)
       on('task', {
         log(args) {
           console.log(...args);
           return null;
         },
       });
-      return require("./cypress/plugins/index.js")(on, config)
+      return config
       
     },
     baseUrl: "https://webdriveruniversity.com",
