@@ -12,36 +12,42 @@ on:
         - cron: 0 7 * * 1
 
 jobs:
+    reusable-steps:
+      runs-on: ubuntu-latest
+      steps:
+          - name: Checkout Repository
+            uses: actions/checkout@v3
+
+          - name: Use Node.js 18
+            uses: actions/setup-node@v3
+            with:
+              node-version: 18.14.2
+
+          - name: Update & Install Ubuntu packages
+            run: |
+              env
+              sudo apt-get update && sudo apt-get install -y libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
+
+          - name: Update & Install NPM packages
+            run: |
+              npx browserslist@latest --update-db
+              npm ci
+
+          - name: Clear Report
+            run: |
+              echo "Clear the report"
+              npm run delete-mochawesome-report
+              npm run delete-results
+
     run-tests:
         runs-on: ubuntu-latest
         strategy:
             fail-fast: false
             matrix:
-              containers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] # Uses 2 parallel instances
+              containers: [1, 2] # Uses 2 parallel instances
         steps:
-            - name: Checkout Repository
-              uses: actions/checkout@v3
-
-            - name: Use Node.js 18
-              uses: actions/setup-node@v3
-              with:
-                node-version: 18.14.2
-
-            - name: Update & Install Ubuntu packages
-              run: |
-                env
-                sudo apt-get update && sudo apt-get install -y libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
-
-            - name: Update & Install NPM packages
-              run: |
-                npx browserslist@latest --update-db
-                npm ci
-
-            - name: Clear Report
-              run: |
-                echo "Clear the report"
-                npm run delete-mochawesome-report
-                npm run delete-results
+            # Include reusable steps from above
+            - uses: ./.github/workflows#reusable-steps
 
             - name: Run Tests
               uses: cypress-io/github-action@v6
