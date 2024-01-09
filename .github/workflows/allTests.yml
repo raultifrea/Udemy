@@ -46,14 +46,12 @@ jobs:
             - name: Run Tests
               uses: cypress-io/github-action@v6
               with:
-                record: true
-                parallel: true
                 browser: chrome
-                group: 'e2e-tests'
                 spec: 'cypress/e2e/**/*' # Run all tests. Same as empty string ''
               env:
-                CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
                 CYPRESS_RU: ${{ github.event.inputs.ru }}
+                SPLIT: ${{ strategy.job-total }}
+                SPLIT_INDEX: ${{ strategy.job-index }}
                 # CYPRESS_BASE_URL: '' # Fil in new baseUrl with https prefix
   
             - name: Prepare report
