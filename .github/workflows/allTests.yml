@@ -48,7 +48,7 @@ jobs:
               containers: [1, 2] # Uses 2 parallel instances
         steps:
             # Include reusable steps from above
-            - uses: ./.github/workflows#reusable-steps
+            - uses: ./.github/workflows/allTests.yaml#reusable-steps
 
             - name: Run Tests
               uses: cypress-io/github-action@v6
