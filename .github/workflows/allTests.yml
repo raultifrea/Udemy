@@ -48,13 +48,9 @@ jobs:
               containers: [1, 2] # Uses 2 parallel instances
         steps:
             # Include reusable steps from above
-            - name: Setup environment
-              run: echo 'Setup environment'
-              id: setup
-
             - name: 'Run reusable steps'
               run: |
-                jobs.reusable-steps.steps
+                $(jobs.reusable-steps.steps)
 
             - name: Run Tests
               uses: cypress-io/github-action@v6
