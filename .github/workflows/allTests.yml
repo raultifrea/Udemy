@@ -19,6 +19,9 @@ jobs:
             matrix:
               containers: [1, 2] # Uses 2 parallel instances
         steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v3
+
             # Include reusable steps from above
             - name: 'Run reusable steps'
               uses: ./.github/workflows/setup.yml
