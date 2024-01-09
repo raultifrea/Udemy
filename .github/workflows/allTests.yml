@@ -24,7 +24,7 @@ jobs:
 
             # Include reusable steps from above
             - name: 'Run reusable steps'
-              uses: ./.github/workflows/setup.yml
+              uses: ./.github/workflows/setup
 
             - name: Run Tests
               uses: cypress-io/github-action@v6
